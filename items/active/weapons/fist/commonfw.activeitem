@@ -1,0 +1,50 @@
+{
+  "itemName" : "commonfw",
+  "price" : 900,
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "description" : "Slow, heavy and effective.",
+  "shortdescription" : "Common Glove",
+  "tooltipKind" : "fistweapon",
+  "category" : "fistweapon",
+  "twoHanded" : true,
+  "itemTags" : ["weapon","melee"],
+
+  "animation" : "fistweapon.animation",
+  "animationParts" : { },
+
+  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+
+  "elementalType" : "physical",
+
+  "primaryAbilityType" : "hammersmash",
+  "primaryAbility" : {
+    "fireTime" : [1.0, 1.2],
+    "baseDps" : [12, 13]
+  },
+  "fireSounds" : [ "/sfx/melee/swing_hammer.ogg" ],
+
+  "builder" : "/items/buildscripts/buildweapon.lua",
+  "builderConfig" : [{
+    "nameGenerator" : "fwnames.config:nameGen",
+    "animationParts" : {
+      "style" : {
+        "path" : "<style>/<variant>.png",
+        "variants" : 10,
+        "paletteSwap" : true
+      },
+      "hand" : {
+        "path" : "hand/<variant>.png",
+        "variants" : 10,
+        "paletteSwap" : true
+      }
+    },
+    "altAbilities" : [
+      "uppercut",
+      "physicalshockwave",
+      "groundslam"
+    ],
+    "palette" : "/items/active/weapons/colors/melee.weaponcolors",
+    "iconDrawables" : [ "hand", "style" ]
+  }]
+}
