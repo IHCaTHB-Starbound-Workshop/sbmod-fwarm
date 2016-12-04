@@ -11,10 +11,8 @@
   "twoHanded" : false,
   "itemTags" : ["weapon"],
 
-  "inventoryIcon" : "boxingglove.png:front",
-  "animation" : "fistweapon.animation",
+  "animation" : "/items/active/weapons/fist/fistweapon.animation",
   "animationParts" : {
-    "weapon" : "boxingglove.png",
     "swoosh" : "swoosh/physicalswoosh.png"
   },
   "animationCustom" : {
@@ -22,7 +20,7 @@
       "fire" : [ "/sfx/melee/swing_dagger.ogg" ]
     }
   },
-  "scripts" : [ "fistweapon.lua" ],
+  "scripts" : [ "/items/active/weapons/fist/fistweapon.lua" ],
 
   "needsEdgeTrigger" : true,
   "edgeTriggerGrace" : 0.1,
@@ -30,7 +28,8 @@
   "comboSteps" : 3,
   "comboTiming" : [0.2, 0.5],
   "comboCooldown" : 0.3,
-  "comboFinisherSource" : "/items/active/weapons/fist/combofinishers/powerpunch.combofinisher",
+
+  "elementalType" : "physical",
 
   "primaryAbility" : {
     "scripts" : ["/items/active/weapons/fist/punch.lua"],
@@ -103,5 +102,24 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildfist.lua"
+  "builder" : "/items/buildscripts/buildrandfist.lua",
+  "builderConfig" : [{
+    "nameGenerator" : "fwnames.config:nameGen",
+    "animationParts" : {
+      "blade" : {
+        "path" : "blade/<variant>.png",
+        "variants" : 59,
+        "paletteSwap" : true
+      },
+      "handle" : {
+        "path" : "glove/<variant>.png",
+        "variants" : 8,
+        "paletteSwap" : true
+      }
+    },
+    "altAbilities" : [ "dashslash", "powerpunch" ],
+    "comboFinisherSource" : [  ],
+    "palette" : "/items/active/weapons/colors/melee.weaponcolors",
+    "iconDrawables" : [ "handle" ]
+  }]
 }
