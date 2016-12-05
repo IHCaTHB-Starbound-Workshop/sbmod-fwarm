@@ -183,7 +183,7 @@ function build(directory, config, parameters, level, seed)
     local parts = builderConfig.iconDrawables or {}
     for _,partName in pairs(parts) do
       local drawable = {
-        image = config.animationParts[partName] .. config.paletteSwaps..":front",
+        image = config.animationParts[partName]..":front" .. config.paletteSwaps,
         position = partImagePositions[partName]
       }
       table.insert(config.inventoryIcon, drawable)

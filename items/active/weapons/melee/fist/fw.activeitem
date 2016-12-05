@@ -13,7 +13,7 @@
 
   "animation" : "/items/active/weapons/fist/fistweapon.animation",
   "animationParts" : {
-    "swoosh" : "swoosh/physicalswoosh.png"
+    "swoosh" : "/items/active/weapons/fist/swoosh/physicalswoosh.png"
   },
   "animationCustom" : {
     "sounds" : {
