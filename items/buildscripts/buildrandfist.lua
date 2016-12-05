@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/versioningutils.lua"
 require "/scripts/staticrandom.lua"
-require "/items/buildscripts/abilities.lua"
+require "/items/buildscripts/combofinishselector.lua"
 
 function build(directory, config, parameters, level, seed)
   local configParameter = function(keyName, defaultValue)
@@ -98,6 +98,25 @@ function build(directory, config, parameters, level, seed)
     config.tooltipFields.comboFinisherTitleLabel = "Finisher:"
     config.tooltipFields.comboFinisherLabel = config.comboFinisher.name or "unknown"
   end
+  local fireTime = parameters.primaryAbility.fireTime or config.primaryAbility.fireTime or 1.0
+  local baseDps = parameters.primaryAbility.baseDps or config.primaryAbility.baseDps or 0
+  local energyUsage = parameters.primaryAbility.energyUsage or config.primaryAbility.energyUsage or 0
+  config.tooltipFields.levelLabel = util.round(configParameter("level", 1), 1)
+  config.tooltipFields.dpsLabel = util.round(baseDps * config.damageLevelMultiplier, 1)
+  config.tooltipFields.speedLabel = util.round(1 / fireTime, 1)
+  config.tooltipFields.damagePerShotLabel = util.round(baseDps * fireTime * config.damageLevelMultiplier, 1)
+  config.tooltipFields.energyPerShotLabel = util.round(energyUsage * fireTime, 1)
+  if elementalType ~= "physical" then
+    config.tooltipFields.damageKindImage = "/interface/elements/"..elementalType..".png"
+  end
+  if config.primaryAbility then
+    config.tooltipFields.primaryAbilityTitleLabel = "Primary:"
+    config.tooltipFields.primaryAbilityLabel = config.primaryAbility.name or "unknown"
+  end
+  if config.altAbility then
+    config.tooltipFields.altAbilityTitleLabel = "Special:"
+    config.tooltipFields.altAbilityLabel = config.altAbility.name or "unknown"
+  end
 
   -- build palette swap directives
   config.paletteSwaps = ""
@@ -164,34 +183,14 @@ function build(directory, config, parameters, level, seed)
     local parts = builderConfig.iconDrawables or {}
     for _,partName in pairs(parts) do
       local drawable = {
-        image = config.animationParts[partName] .. config.paletteSwaps,
+        image = config.animationParts[partName] .. config.paletteSwaps..":front",
         position = partImagePositions[partName]
       }
       table.insert(config.inventoryIcon, drawable)
     end
   end
 
-  -- populate tooltip fields
-  config.tooltipFields = {}
-  local fireTime = parameters.primaryAbility.fireTime or config.primaryAbility.fireTime or 1.0
-  local baseDps = parameters.primaryAbility.baseDps or config.primaryAbility.baseDps or 0
-  local energyUsage = parameters.primaryAbility.energyUsage or config.primaryAbility.energyUsage or 0
-  config.tooltipFields.levelLabel = util.round(configParameter("level", 1), 1)
-  config.tooltipFields.dpsLabel = util.round(baseDps * config.damageLevelMultiplier, 1)
-  config.tooltipFields.speedLabel = util.round(1 / fireTime, 1)
-  config.tooltipFields.damagePerShotLabel = util.round(baseDps * fireTime * config.damageLevelMultiplier, 1)
-  config.tooltipFields.energyPerShotLabel = util.round(energyUsage * fireTime, 1)
-  if elementalType ~= "physical" then
-    config.tooltipFields.damageKindImage = "/interface/elements/"..elementalType..".png"
-  end
-  if config.primaryAbility then
-    config.tooltipFields.primaryAbilityTitleLabel = "Primary:"
-    config.tooltipFields.primaryAbilityLabel = config.primaryAbility.name or "unknown"
-  end
-  if config.altAbility then
-    config.tooltipFields.altAbilityTitleLabel = "Special:"
-    config.tooltipFields.altAbilityLabel = config.altAbility.name or "unknown"
-  end
+
 
   -- set price
   config.price = (config.price or 0) * root.evalFunction("itemLevelPriceMultiplier", configParameter("level", 1))

@@ -3,9 +3,9 @@
   "price" : 250,
   "level" : 1,
   "maxStack" : 1,
-  "rarity" : "Rare",
+  "rarity" : "Common",
   "description" : "Now you can be a contender.",
-  "shortdescription" : "Boxing Glove",
+  "shortdescription" : "Glove",
   "tooltipKind" : "fistweapon",
   "category" : "fistWeapon",
   "twoHanded" : false,
@@ -28,6 +28,7 @@
   "comboSteps" : 3,
   "comboTiming" : [0.2, 0.5],
   "comboCooldown" : 0.3,
+  "comboFinisherSource" : "/items/active/weapons/fist/combofinishers/dashslash.combofinisher",
 
   "elementalType" : "physical",
 
@@ -106,20 +107,14 @@
   "builderConfig" : [{
     "nameGenerator" : "fwnames.config:nameGen",
     "animationParts" : {
-      "blade" : {
-        "path" : "blade/<variant>.png",
-        "variants" : 59,
-        "paletteSwap" : true
-      },
-      "handle" : {
+      "weapon" : {
         "path" : "glove/<variant>.png",
         "variants" : 8,
-        "paletteSwap" : true
+        "paletteSwap" : false
       }
     },
-    "altAbilities" : [ "dashslash", "powerpunch" ],
-    "comboFinisherSource" : [  ],
+    "comboFinisher" : [ "dashslash", "powerpunch" ],
     "palette" : "/items/active/weapons/colors/melee.weaponcolors",
-    "iconDrawables" : [ "handle" ]
+    "iconDrawables" : [ "weapon" ]
   }]
 }
