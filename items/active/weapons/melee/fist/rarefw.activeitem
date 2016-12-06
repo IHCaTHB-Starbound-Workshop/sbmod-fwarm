@@ -1,77 +1,119 @@
 {
   "itemName" : "rarefw",
-  "price" : 1080,
+  "price" : 900,
   "maxStack" : 1,
   "rarity" : "Rare",
-  "description" : "Slow, heavy and effective.",
-  "shortdescription" : "Rare Glove",
+  "description" : "Now you can be a contender.",
+  "shortdescription" : "Glove",
   "tooltipKind" : "fistweapon",
-  "category" : "fistweapon",
-  "twoHanded" : true,
-  "itemTags" : ["weapon","melee"],
+  "category" : "fistWeapon",
+  "twoHanded" : false,
+  "itemTags" : ["weapon","melee","fistweapon"],
 
-  "animation" : "fistweapon.animation",
-  "animationParts" : { },
-  "animationCustom" : { },
 
-  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "animation" : "fw.animation",
+  "animationParts" : {
+    "swoosh" : "/items/active/weapons/fist/swoosh/physicalswoosh.png"
+  },
+  "animationCustom" : {
+    "sounds" : {
+      "fire" : [ "/sfx/melee/swing_dagger.ogg" ]
+    }
+  },
+  "scripts" : [ "/items/active/weapons/fist/fistweapon.lua" ],
 
-  "primaryAbilityType" : "hammersmash",
+  "needsEdgeTrigger" : true,
+  "edgeTriggerGrace" : 0.1,
+
+  "comboSteps" : 3,
+  "comboTiming" : [0.2, 0.5],
+  "comboCooldown" : 0.3,
+  "comboFinisherSource" : "/items/active/weapons/fist/combofinishers/dashslash.combofinisher",
+
+  "elementalType" : "physical",
+
   "primaryAbility" : {
-    "fireTime" : [1.0, 1.2],
-    "baseDps" : [12.5, 13.5],
+    "scripts" : ["/items/active/weapons/fist/punch.lua"],
+    "class" : "Punch",
+
+    "freezeTime" : 0.15,
+    "fireTime" : 0.2,
+    "baseDps" : 6.0,
     "damageConfig" : {
-      "damageSourceKind" : "<elementalType>hammer",
-      "knockbackRange" : [40, 50]
+      "statusEffects" : [ ],
+      "damageSourceKind" : "fist",
+      "knockback" : [0, 15],
+      "timeoutGroup" : "primary",
+      "timeout" : 0.1
+    },
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 45,
+        "weaponRotationCenter" : [-1.0, 0.0],
+        "weaponOffset" : [-0.25, -0.575],
+
+        "allowRotate" : false,
+        "allowFlip" : true,
+
+        "frontArmFrame" : "run.2",
+        "backArmFrame" : "jump.3"
+      },
+      "windup" : {
+        "duration" : 0.05,
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "weaponRotationCenter" : [-1.0, 0.0],
+        "weaponOffset" : [-0.625, -0.125],
+
+        "allowRotate" : false,
+        "allowFlip" : false,
+
+        "frontArmFrame" : "swimIdle.1",
+        "backArmFrame" : "swim.1"
+      },
+      "windup2" : {
+        "duration" : 0.05,
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "weaponRotationCenter" : [-1.0, 0.0],
+        "weaponOffset" : [-0.75, -0.125],
+
+        "allowRotate" : false,
+        "allowFlip" : false,
+
+        "frontArmFrame" : "swimIdle.1",
+        "backArmFrame" : "swim.1",
+
+        "recoil" : true
+      },
+      "fire" : {
+        "duration" : 0.1,
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "weaponRotationCenter" : [-1.0, 0.0],
+        "weaponOffset" : [0.125, -0.25],
+
+        "allowRotate" : false,
+        "allowFlip" : false,
+
+        "frontArmFrame" : "rotation",
+        "backArmFrame" : "rotation"
+      }
     }
   },
 
-  "builder" : "/items/buildscripts/buildweapon.lua",
+  "builder" : "/items/buildscripts/buildrandfist.lua",
   "builderConfig" : [{
     "nameGenerator" : "fwnames.config:nameGen",
-    "elementalType" : [
-      "fire",
-      "ice",
-      "electric",
-      "poison"
-    ],
-    "elementalConfig" : {
-      "fire" : {
-        "primaryAbility" : { "damageConfig" : { "statusEffects" : [ "burning" ] } },
-        "fireSounds" : [ [ "/sfx/melee/swing_hammer_fire1.ogg", "/sfx/melee/swing_hammer_fire2.ogg", "/sfx/melee/swing_hammer_fire3.ogg" ] ]
-      },
-      "ice" : {
-        "primaryAbility" : { "damageConfig" : { "statusEffects" : [ "frostslow" ] } },
-        "fireSounds" : [ [ "/sfx/melee/swing_hammer_ice1.ogg", "/sfx/melee/swing_hammer_ice2.ogg", "/sfx/melee/swing_hammer_ice3.ogg" ] ]
-      },
-      "poison" : {
-        "primaryAbility" : { "damageConfig" : { "statusEffects" : [ "weakpoison" ] } },
-        "fireSounds" : [ [ "/sfx/melee/swing_hammer_poison1.ogg", "/sfx/melee/swing_hammer_poison2.ogg", "/sfx/melee/swing_hammer_poison3.ogg" ] ]
-      },
-      "electric" : {
-        "primaryAbility" : { "damageConfig" : { "statusEffects" : [ "electrified" ] } },
-        "fireSounds" : [ [ "/sfx/melee/swing_hammer_electric1.ogg", "/sfx/melee/swing_hammer_electric2.ogg", "/sfx/melee/swing_hammer_electric3.ogg" ] ]
-      }
-    },
     "animationParts" : {
-      "style" : {
-        "path" : "<style>/<variant>.png",
-        "variants" : 10,
-        "paletteSwap" : true
-      },
-      "hand" : {
-        "path" : "hand/<variant>.png",
-        "variants" : 10,
-        "paletteSwap" : true
+      "weapon" : {
+        "path" : "glove/9.png",
+        "variants" : 8,
+        "paletteSwap" : false
       }
     },
-    "altAbilities" : [
-      "blinkexplosion",
-      "shockwave",
-      "elementalaura",
-      "elementalpillar"
-    ],
     "palette" : "/items/active/weapons/colors/melee.weaponcolors",
-    "iconDrawables" : [ "hand", "style" ]
+    "iconDrawables" : [ "weapon" ]
   }]
 }

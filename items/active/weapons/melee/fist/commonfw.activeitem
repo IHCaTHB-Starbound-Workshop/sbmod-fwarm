@@ -1,7 +1,6 @@
 {
   "itemName" : "commonfw",
   "price" : 250,
-  "level" : 1,
   "maxStack" : 1,
   "rarity" : "Common",
   "description" : "Now you can be a contender.",
@@ -9,9 +8,10 @@
   "tooltipKind" : "fistweapon",
   "category" : "fistWeapon",
   "twoHanded" : false,
-  "itemTags" : ["weapon"],
+  "itemTags" : ["weapon","melee","fistweapon"],
 
-  "animation" : "/items/active/weapons/fist/fistweapon.animation",
+
+  "animation" : "fw.animation",
   "animationParts" : {
     "swoosh" : "/items/active/weapons/fist/swoosh/physicalswoosh.png"
   },
@@ -24,6 +24,11 @@
 
   "needsEdgeTrigger" : true,
   "edgeTriggerGrace" : 0.1,
+
+  "comboSteps" : 3,
+  "comboTiming" : [0.2, 0.5],
+  "comboCooldown" : 0.3,
+  "comboFinisherSource" : "/items/active/weapons/fist/combofinishers/dashslash.combofinisher",
 
   "elementalType" : "physical",
 
@@ -105,7 +110,7 @@
       "weapon" : {
         "path" : "glove/<variant>.png",
         "variants" : 8,
-        "paletteSwap" : false
+        "paletteSwap" : true
       }
     },
     "palette" : "/items/active/weapons/colors/melee.weaponcolors",

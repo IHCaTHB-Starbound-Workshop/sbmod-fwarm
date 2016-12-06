@@ -1,7 +1,6 @@
 {
   "itemName" : "fw",
   "price" : 250,
-  "level" : 1,
   "maxStack" : 1,
   "rarity" : "Common",
   "description" : "Now you can be a contender.",
@@ -11,7 +10,7 @@
   "twoHanded" : false,
   "itemTags" : ["weapon"],
 
-  "animation" : "/items/active/weapons/fist/fistweapon.animation",
+  "animation" : "fw.animation",
   "animationParts" : {
     "swoosh" : "/items/active/weapons/fist/swoosh/physicalswoosh.png"
   },
@@ -113,7 +112,6 @@
         "paletteSwap" : false
       }
     },
-    "comboFinisher" : [ "dashslash", "powerpunch" ],
     "palette" : "/items/active/weapons/colors/melee.weaponcolors",
     "iconDrawables" : [ "weapon" ]
   }]

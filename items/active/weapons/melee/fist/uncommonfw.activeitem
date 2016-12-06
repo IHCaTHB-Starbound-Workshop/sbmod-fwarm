@@ -10,7 +10,7 @@
   "twoHanded" : true,
   "itemTags" : ["weapon","melee"],
 
-  "animation" : "fistweapon.animation",
+  "animation" : "fw.animation",
   "animationParts" : { },
   "animationCustom" : { },
 

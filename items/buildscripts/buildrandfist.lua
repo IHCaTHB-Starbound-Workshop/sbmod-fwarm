@@ -190,8 +190,6 @@ function build(directory, config, parameters, level, seed)
     end
   end
 
-
-
   -- set price
   config.price = (config.price or 0) * root.evalFunction("itemLevelPriceMultiplier", configParameter("level", 1))
 
@@ -205,3 +203,4 @@ function scaleConfig(ratio, value)
     return value
   end
 end
+
