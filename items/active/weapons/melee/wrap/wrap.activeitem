@@ -49,8 +49,8 @@
     "stances" : {
       "idle" : {
         "armRotation" : 0,
-        "weaponRotation" : 45,
-        "weaponRotationCenter" : [-1.0, 0.0],
+        "weaponRotation" : -45,
+        "weaponRotationCenter" : [0.0, 0.0],
         "weaponOffset" : [0.25, 2],
 
         "allowRotate" : false,
@@ -62,9 +62,9 @@
       "windup" : {
         "duration" : 0.05,
         "armRotation" : 0,
-        "weaponRotation" : -90,
+        "weaponRotation" : 90,
         "weaponRotationCenter" : [-1.0, 0.0],
-        "weaponOffset" : [-0.625, -0.125],
+        "weaponOffset" : [-1.625, 0.5],
 
         "allowRotate" : false,
         "allowFlip" : false,
@@ -75,9 +75,9 @@
       "windup2" : {
         "duration" : 0.05,
         "armRotation" : 0,
-        "weaponRotation" : -90,
+        "weaponRotation" : 90,
         "weaponRotationCenter" : [-1.0, 0.0],
-        "weaponOffset" : [-0.75, -0.125],
+        "weaponOffset" : [-1.75, 0.5],
 
         "allowRotate" : false,
         "allowFlip" : false,
@@ -90,9 +90,9 @@
       "fire" : {
         "duration" : 0.1,
         "armRotation" : 0,
-        "weaponRotation" : -90,
+        "weaponRotation" : 90,
         "weaponRotationCenter" : [-1.0, 0.0],
-        "weaponOffset" : [0.125, -0.25],
+        "weaponOffset" : [-0.875, 0],
 
         "allowRotate" : false,
         "allowFlip" : false,
