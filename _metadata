@@ -3,7 +3,7 @@
   "description" : "]",
   "friendlyName" : "",
   "includes" : [],
-  "name" : ".IHC",
+  "name" : "FWARM.IHC",
   "requires" : [],
   "version" : "0.1"
 }
