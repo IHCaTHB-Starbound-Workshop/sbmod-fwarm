@@ -28,7 +28,7 @@
           "transformationGroups" : ["weapon"],
           "rotationCenter" : [-1, 0],
           "centered" : true,
-          "image" : "<partImage>:<hand>"
+          "image" : "<partImage>:<hand>?<paletteSwaps>"
         }
       },
       "swoosh" : {
@@ -44,7 +44,7 @@
             "idle" : { },
             "fire" : {
               "properties" : {
-                "image" : "<partImage>:<frame>",
+                "image" : "<partImage>:<frame>?<paletteSwaps>",
                 "damageArea" : [[-1, -1.1], [1.0, -0.6], [1.0, 0.8], [-1, 1.3]]
               }
             }

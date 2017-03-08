@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/versioningutils.lua"
 require "/scripts/staticrandom.lua"
-require "/items/buildscripts/combofinishselector.lua"
+--require "/items/buildscripts/combofinishselector.lua"
 
 function build(directory, config, parameters, level, seed)
   local configParameter = function(keyName, defaultValue)
@@ -183,7 +183,7 @@ function build(directory, config, parameters, level, seed)
     local parts = builderConfig.iconDrawables or {}
     for _,partName in pairs(parts) do
       local drawable = {
-        image = config.animationParts[partName]..":front" .. config.paletteSwaps,
+        image = config.animationParts[partName] .. config.paletteSwaps,
         position = partImagePositions[partName]
       }
       table.insert(config.inventoryIcon, drawable)
