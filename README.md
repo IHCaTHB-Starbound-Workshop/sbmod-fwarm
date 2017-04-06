@@ -1,20 +1,18 @@
+![_previewimage]
+
 # sbmod-fwarm
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-<br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">
-Sprite work for starbound</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/IsaacHart" property="cc:attributionName" rel="cc:attributionURL">Isaac Hart Childress</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://chucklefish.org/" rel="dct:source">http://chucklefish.org/</a>.
-<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/IsaacHart" rel="cc:morePermissions">https://github.com/IsaacHart</a>.
+# readme
 
-Code licensed under GPLv3, file included
+Project licensed under a modified [MIT license], file included.
 
-community.playstarbound.com/threads/124193/
+See also [ATTRIBUTION.md], [CHANGELOG.md], [DOC.md], and [_metadata].
 
-Consider permission granted to take over this mod IF
+You can contact the author on the official Starbound forums [MEGATHREAD].
 
-I have been inactive for longer than 1 month
-AND
-a request is sent via message on the forums and a response takes longer than 1 week.
-
-Find all other pertinent information in the _metadata file.
-
+[_previewimage]: _previewimage
+[MIT license]: LICENSE
+[ATTRIBUTION.md]: ATTRIBUTION.md
+[CHANGELOG.md]: ../master/CHANGELOG.md
+[DOC.md]: DOC.md
+[_metadata]: _metadata
+[MEGATHREAD]: http://community.playstarbound.com/threads/124193/
